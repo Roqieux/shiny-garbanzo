@@ -1,0 +1,54 @@
+[
+  {
+    "fridge_name": "NLNA",
+    "coords": "700 N 3rd Street"
+  },
+  {
+    "fridge_name": "Martha",
+    "coords": "2113 E York Street"
+  },
+  {
+    "fridge_name": "YMCA",
+    "coords": "1400 N Broad Street"
+  },
+  {
+    "fridge_name": "Castellinos",
+    "coords": "1255 E Palmer Street"
+  },
+  {
+    "fridge_name": "Alchemy Hair Lab",
+    "coords": "2401 E Letterly Street"
+  },
+  {
+    "fridge_name": "Caribe Towers",
+    "coords": "3231 N 2nd Street"
+  },
+  {
+    "fridge_name": "Opportunity Towers I & II",
+    "coords": "1717 W Hunting Park Avenue"
+  },
+  {
+    "fridge_name": "Opportunity Towers III",
+    "coords": "5524 Woodland Avenue"
+  },
+  {
+    "fridge_name": "Hue Boba Cafe",
+    "coords": "4600 Woodland Avenue"
+  },
+  {
+    "fridge_name": "Community Partnership School",
+    "coords": "3033 W Glenwood Avenue"
+  },
+  {
+    "fridge_name":"Germantown",
+    "coords": "234 Winona Avenue"
+  },
+  {
+    "fridge_name":"Fairmount Bicycles",
+    "coords": "2015 Fairmount Ave"
+  },
+  {
+    "fridge_name": "Porcos",
+    "coords": "2204 Washington Avenue"
+  }
+]
