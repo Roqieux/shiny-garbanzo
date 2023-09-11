@@ -1,4 +1,4 @@
-const seedFridges = require('./Fridgeseeds');
+const seedFridges = require('./FridgeSeeds');
 const seedItems = require('./ItemSeeds');
 const seedUserFridges = require('./User_FridgeSeeds');
 const seedUsers = require('./UserSeeds');
