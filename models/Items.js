@@ -21,7 +21,7 @@ Item.init(
         type: DataTypes.STRING,
         allowNull: false,
         references: {
-            model: 'user',
+            model: 'fridge',
             key: 'id',
           }
       },
@@ -31,6 +31,10 @@ Item.init(
       },
       is_frozen:{
         type: DataTypes.BOOLEAN,
+        allowNull: false
+      },
+      OwnerID: {
+        type: DataTypes.INTEGER,
         allowNull: false
       }
     },
