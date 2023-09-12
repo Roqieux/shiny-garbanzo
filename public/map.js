@@ -27,9 +27,22 @@ async function initMap() {
 
         const marker = new AdvancedMarkerElement({
           map,
+          // content: buildContent(location),
           position: locLatLng,
+          // remove title when content card is complete?
+          title: location.fridge_name
         })
         console.log(marker.position);
+
+        marker.addListener('click', () => {
+          console.log('Toot-Toot!')
+        });
+        marker.addListener('mouseover', () => {
+          console.log('Tickle-Tickle!')
+        });
       })
   };
 };
+
+// Todo: function buildContent(data)
+// Todo: (maybe?) function toggleHilight()
