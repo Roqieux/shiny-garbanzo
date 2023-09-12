@@ -40,6 +40,10 @@ Item.init(
       is_frozen:{
         type: DataTypes.BOOLEAN,
         allowNull: false
+      },
+      OwnerID: {
+        type: DataTypes.INTEGER,
+        allowNull: false
       }
     },
     {
