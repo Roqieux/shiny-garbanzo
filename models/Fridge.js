@@ -15,23 +15,22 @@ Fridge.init(
       },
       fridge_name: {
         type: DataTypes.STRING,
-        allowNull: false
+
       },
       owner_id: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        type: DataTypes.INTEGER,
         references: {
             model: 'user',
-            key: 'id',
+            key: 'id'
           }
       },
       coords: {
         type: DataTypes.STRING,
-        allowNull: false
+
       },
       is_public: {
         type: DataTypes.BOOLEAN,
-        allowNull: false
+
       }
     },
     {
