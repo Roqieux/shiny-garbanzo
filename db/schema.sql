@@ -1,2 +1,2 @@
-drop if exists freefridgeDB
-create freefridgeDB
+DROP DATABASE IF EXISTS freefridgeDB;
+CREATE DATABASE freefridgeDB;

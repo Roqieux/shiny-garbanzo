@@ -48,6 +48,6 @@ Item.belongsTo(User,{
 module.exports = {
   Item,
  Fridge,
-  User,
+  User
   // UserFridge,
 };

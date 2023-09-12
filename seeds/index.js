@@ -1,6 +1,6 @@
 const seedFridges = require('./FridgeSeeds');
 const seedItems = require('./ItemSeeds');
-const seedUserFridges = require('./User_FridgeSeeds');
+// const seedUserFridges = require('./User_FridgeSeeds');
 const seedUsers = require('./UserSeeds');
 
 const sequelize = require('../config/connection');
