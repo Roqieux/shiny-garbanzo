@@ -23,14 +23,19 @@ User.init(
       },
       username: {
         type: DataTypes.STRING,
+        unique: true,
+        allownull: flase
 
       },
       email: {
         type: DataTypes.STRING,
+        unique: true,
+        allowNull: false
 
       },
       Password: {
         type: DataTypes.INTEGER,
+        allowNull: false
 
       },
     },
