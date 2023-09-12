@@ -39,7 +39,6 @@ Item.init(
       },
       is_frozen:{
         type: DataTypes.BOOLEAN,
-
       }
     },
     {
