@@ -21,9 +21,17 @@ Item.init(
         type: DataTypes.STRING,
         allowNull: false,
         references: {
-            model: 'user',
+            model: 'fridge',
             key: 'id',
           }
+      },
+      UserId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'user',
+          key: 'id',
+        }
       },
       Expiration_date: {
         type: DataTypes.STRING,
