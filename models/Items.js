@@ -18,7 +18,7 @@ Item.init(
 
       },
       fridge_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
 
         references: {
             model: 'fridge',
