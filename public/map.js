@@ -27,7 +27,7 @@ async function initMap() {
 
         const marker = new AdvancedMarkerElement({
           map,
-          // content: buildContent(location),
+          content: buildContent(location),
           position: locLatLng,
           // remove title when content card is complete?
           title: location.fridge_name
@@ -46,3 +46,7 @@ async function initMap() {
 
 // Todo: function buildContent(data)
 // Todo: (maybe?) function toggleHilight()
+
+function buildContent(data) {
+  
+}
