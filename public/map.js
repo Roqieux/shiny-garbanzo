@@ -7,15 +7,18 @@ async function initMap() {
     zoom: 12,
   });
 
+  const infoWindow = new InfoWindow();
+
   // Todo: get fridges array from db table
+  const location = {
+    id: 1,
+    fridge_name: "700 N 3rd St",
+    OwnerId: 1,
+    coords: "700 N 3rd St",
+    isPublic: true
+  };
+  // Todo: insert for-loop here at next curly bracket
   {
-    const location = {
-      id: 1,
-      fridge_name: "700 N 3rd St",
-      OwnerId: 1,
-      coords: "700 N 3rd St",
-      isPublic: true
-    };
     const addressString = location.coords.replaceAll(' ', '+');
 
     fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${addressString},+Philadelphia,+PA&key=AIzaSyD6L6whRm8FlsozW7lN8bUic-Jh8uClIyU`)
@@ -25,21 +28,35 @@ async function initMap() {
         const locLatLng = data.results[0].geometry.location;
         console.log(locLatLng)
 
+        const glyphImg = document.createElement('div');
+        glyphImg.innerHTML = '<i class="material-icons" style="font-size:20px">kitchen</i>';
+        const pin = new PinElement({
+          glyph: glyphImg,
+          background: '#ffff00',
+          borderColor: '#ffff00',
+        });
+
         const marker = new AdvancedMarkerElement({
           map,
-          content: buildContent(location),
+          // content: buildContent(location),
+          content: pin.element,
           position: locLatLng,
-          // remove title when content card is complete?
+          // remove title when fridge card is complete?
           title: location.fridge_name
         })
         console.log(marker.position);
 
-        marker.addListener('click', () => {
+        marker.addListener('click', ({ domEvent, locLatLng }) => {
           console.log('Toot-Toot!')
-        });
-        marker.addListener('mouseover', () => {
-          console.log('Tickle-Tickle!')
-        });
+          const { target } = domEvent;
+
+          infoWindow.close();
+          infoWindow.setContent(marker.title);
+          infoWindow.open(marker.map, marker);
+        })
+        // marker.addListener('mouseover', () => {
+        //   console.log('Tickle-Tickle!')
+        // })
       })
   };
 };
@@ -48,5 +65,5 @@ async function initMap() {
 // Todo: (maybe?) function toggleHilight()
 
 function buildContent(data) {
-  
+
 }
