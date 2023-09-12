@@ -6,8 +6,7 @@ const UserFridge = require('./User-Fridge');
 
 // Items and fridge relationships
 Item.belongsTo(Fridge,{
-  foreignKey: 'fridge_id',
-  allownull: false
+  foreignKey: 'fridge_id'
 })
 
 Fridge.hasMany(Item,{
@@ -16,24 +15,20 @@ Fridge.hasMany(Item,{
 
 // Fridges to users 
 Fridge.belongsTo(User, {
-    foreignKey: 'OwnerId',
-    allownull: false
+    foreignKey: 'owner_id'
 })
 
 User.hasMany(Fridge,{
-  foreignKey: 'user_id',
-  allownull: false
+  foreignKey: 'owner_id'
 })
 
 //Users to items
 User.hasMany(Item,{
-  foreignKay: 'user_id',
-  allownull: false
+  foreignKey: 'user_id'
 })
 
 Item.belongsTo(User,{
-  foreignKey: 'user_id',
-  allownull: false
+  foreignKey: 'user_id'
 })
 
 

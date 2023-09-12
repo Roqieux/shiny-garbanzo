@@ -17,7 +17,7 @@ Item.init(
         type: DataTypes.STRING,
         allowNull: false
       },
-      FridgeId: {
+      fridge_id: {
         type: DataTypes.STRING,
         allowNull: false,
         references: {
@@ -25,7 +25,7 @@ Item.init(
             key: 'id',
           }
       },
-      UserId: {
+      user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
@@ -33,7 +33,7 @@ Item.init(
           key: 'id',
         }
       },
-      Expiration_date: {
+      expiration_date: {
         type: DataTypes.STRING,
         allowNull: false
       },

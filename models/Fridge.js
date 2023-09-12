@@ -17,7 +17,7 @@ Fridge.init(
         type: DataTypes.STRING,
         allowNull: false
       },
-      OwnerId: {
+      owner_id: {
         type: DataTypes.STRING,
         allowNull: false,
         references: {
