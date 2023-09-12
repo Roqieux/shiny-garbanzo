@@ -24,6 +24,12 @@ async function initMap() {
         console.log(data);
         const locLatLng = data.results[0].geometry.location;
         console.log(locLatLng)
+
+        const marker = new AdvancedMarkerElement({
+          map,
+          position: locLatLng,
+        })
+        console.log(marker.position);
       })
   };
 };
