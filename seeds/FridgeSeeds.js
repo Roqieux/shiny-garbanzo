@@ -94,6 +94,6 @@ const fridgeData = [
    },
 ];
 
-const seedCategories = () => Fridge.bulkCreate(fridgeData);
+const seedFridges = () => Fridge.bulkCreate(fridgeData);
 
-module.exports = seedCategories;
+module.exports = seedFridges;
