@@ -3,8 +3,17 @@ const router = express.Router();
 
 module.exports = (connection) => {
     // User Management
-    router.post('/register', (req, res) => {
-       
+    router.post('/', async (req, res) => {
+       try {
+        const newUserData = req.body;
+        
+        newUserData.password = await bcrypt.hash(req.body.password, 10);
+
+        const userData = await User.create(newUserData);
+        res.status(200).json(userData);
+
+
+       }
         res.send("User registered!");
     });
 
