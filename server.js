@@ -6,6 +6,8 @@ const routes = require('./controllers');
 // do we need this?
 const helpers = require('./utils/helpers')
 
+
+
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
