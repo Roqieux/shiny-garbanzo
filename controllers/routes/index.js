@@ -22,8 +22,12 @@ connection.connect(err => {
 });
 
 // Integrate apiRoute and pass 
+const homeRoutes = require('./homeRoutes.js');
+app.use('/', homeRoutes);
+
 const apiRoutes = require('./apiRoute.js')(connection);
 app.use('/api', apiRoutes);
+
 
 const PORT = 3000;
 app.listen(PORT, () => {
