@@ -1,9 +1,9 @@
 const express = require('express');
-const router = express.Router();
+const router = express('express').Router();
 const { User } = require('../models/User');
 const bcrypt = require('bcrypt');
 
-module.exports = (connection) => {
+// module.exports = (connection) => {
     // User Management
 
     // Create a new user
