@@ -1,0 +1,21 @@
+/* boilerplate CSS to get map page looking decent */
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#map {
+  height: 80vh;
+  width: 35vw;
+}
