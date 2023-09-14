@@ -1,6 +1,11 @@
 const router = require('express').Router();
-const { Project } = require('../../models');
+const { Fridge } = require('../../models');
 const withAuth = require('../../utils/auth');
+
+//create a fridge post 
+//read a fridge  get 
+//update a fride put 
+//delete a fride delete
 
 router.post('/', withAuth, async (req, res) => {
   try {
