@@ -1,18 +1,4 @@
 {
-<<<<<<< HEAD
-    "name": "shiny-garbanzo",
-    "version": "1.0.0",
-    "description": "Public Fridge Finder",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "Victor Marczyk",
-    "license": "ISC",
-    "dependencies": {
-        "mysql2": "^3.6.1"
-    }
-=======
   "name": "shiny-garbanzo",
   "version": "1.0.0",
   "description": "",
@@ -39,5 +25,4 @@
   "devDependencies": {
     "nodemon": "^3.0.1"
   }
->>>>>>> 1b903935543de87f0bcb569e20846fe24eb06cec
 }
