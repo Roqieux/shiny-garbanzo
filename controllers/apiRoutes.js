@@ -3,25 +3,25 @@ const router = express.Router();
 
 module.exports = (connection) => {
     // User Management
-    // router.post('/register', (req, res) => {
+    router.post('/register', (req, res) => {
        
-    //     res.send("User registered!");
-    // });
+        res.send("User registered!");
+    });
 
-    // router.post('/login', (req, res) => {
+    router.post('/login', (req, res) => {
         
-    //     res.send("User logged in!");
-    // });
+        res.send("User logged in!");
+    });
 
-    // router.get('/profile', (req, res) => {
+    router.get('/profile', (req, res) => {
         
-    //     res.json({ username: "JohnDoe", email: "john@example.com" });
-    // });
+        res.json({ username: "JohnDoe", email: "john@example.com" });
+    });
 
-    // router.post('/logout', (req, res) => {
+    router.post('/logout', (req, res) => {
         
-    //     res.send("User logged out!");
-    // });
+        res.send("User logged out!");
+    });
 
     // Inventory Management
     router.post('/item', (req, res) => {
