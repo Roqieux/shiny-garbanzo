@@ -26,10 +26,10 @@ router.get('/userfridges/:id', withAuth, async (req, res) => {
     //show a list of users fridges
     const userData = await User.findByPk(req.params.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Fridge}]
+      include: [{ model: Fridge }]
     });
-    
-    const fridges = userData.map((display) => display.get({ plain: true}));
+
+    const fridges = userData.map((display) => display.get({ plain: true }));
 
     res.render('userfridges', {
       fridges,
@@ -46,10 +46,10 @@ router.get('/useritems/:id', withAuth, async (req, res) => {
     //show a list of users fridges
     const userData = await User.findByPk(req.params.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Item}]
+      include: [{ model: Item }]
     });
-    
-    const fridges = userData.map((display) => display.get({ plain: true}));
+
+    const fridges = userData.map((display) => display.get({ plain: true }));
 
     res.render('useritems', {
       fridges,
