@@ -46,7 +46,7 @@ router.get('/useritems/:id', withAuth, async (req, res) => {
     //show a list of users fridges
     const userData = await User.findByPk(req.params.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Fridge}]
+      include: [{ model: Item}]
     });
     
     const fridges = userData.map((display) => display.get({ plain: true}));
@@ -59,11 +59,6 @@ router.get('/useritems/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-
-
-
-
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {

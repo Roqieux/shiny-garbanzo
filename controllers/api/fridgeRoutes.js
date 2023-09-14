@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const router = require('express').Router();
 const { Fridge } = require('../../models');
 const withAuth = require('../../utils/auth');
@@ -9,14 +8,6 @@ const withAuth = require('../../utils/auth');
 //delete a fride delete
 
 router.post('/', withAuth, async (req, res) => {
-=======
-const express = require('express');
-const router = express.Router();
-const { Fridge } = require('../../models');
-
-// Create a new fridge 
-router.post('/', async (req, res) => {
->>>>>>> 9cd2890bcef4be48007408a3b5fe6a592976124c
   try {
     const fridgeData = await Fridge.create(req.body);
     res.status(200).json(fridgeData);
