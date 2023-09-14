@@ -6,7 +6,7 @@ const userSeed = [
         first_name: "Elizabeth",
         last_name: "Quinn",
         username: "Brou",
-        email: "Smething@something.com",
+        email: "Smething1@something.com",
         password: "BlahBlah"
     },
     {
@@ -14,7 +14,7 @@ const userSeed = [
         first_name: "Jude",
         last_name: "Hartmann",
         username: "Dbear",
-        email: "Smething@something.com",
+        email: "Smething2@something.com",
         password: "BlahBlah"
     },
     {
@@ -22,7 +22,7 @@ const userSeed = [
         first_name: "Victor",
         last_name: "Marczyk",
         username: "Vic",
-        email: "Smething@something.com",
+        email: "Smething3@something.com",
         password: "BlahBlah"
     },
     {
@@ -30,7 +30,7 @@ const userSeed = [
         first_name: "Julien",
         last_name: "Larroque",
         username: "Croissant",
-        email: "Smething@something.com",
+        email: "Smething4@something.com",
         password: "BlahBlah"
     },
     {
@@ -38,7 +38,7 @@ const userSeed = [
         first_name: "Greg",
         last_name: "Skudlarek",
         username: "Greg",
-        email: "Smething@something.com",
+        email: "Smething5@something.com",
         password: "BlahBlah"
     },
 ]
