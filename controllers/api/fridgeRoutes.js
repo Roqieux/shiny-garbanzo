@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const router = require('express').Router();
 const { Fridge } = require('../../models');
 const withAuth = require('../../utils/auth');
@@ -8,35 +9,69 @@ const withAuth = require('../../utils/auth');
 //delete a fride delete
 
 router.post('/', withAuth, async (req, res) => {
-  try {
-    const newProject = await Project.create({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
+=======
+const express = require('express');
+const router = express.Router();
+const { Fridge } = require('../../models');
 
-    res.status(200).json(newProject);
+// Create a new fridge 
+router.post('/', async (req, res) => {
+>>>>>>> 9cd2890bcef4be48007408a3b5fe6a592976124c
+  try {
+    const fridgeData = await Fridge.create(req.body);
+    res.status(200).json(fridgeData);
   } catch (err) {
-    res.status(400).json(err);
+      res.status(500).json(err);
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+// Get a single fridge 
+router.get('/:id', async (req, res) => {
   try {
-    const projectData = await Project.destroy({
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
-    });
-
-    if (!projectData) {
-      res.status(404).json({ message: 'No project found with this id!' });
+    const fridgeData = await Fridge.findByPk(req.params.id);
+    if (!fridgeData) {
+      res.status(404).json({ message: 'No fridge with this id!' });
       return;
     }
-
-    res.status(200).json(projectData);
+      res.status(200).json(fridgeData);
   } catch (err) {
-    res.status(500).json(err);
+      res.status(500).json(err);
+  }
+});
+
+// Update a fridge 
+router.put('/:id', async (req, res) => {
+  try {
+      const fridgeData = await Fridge.update(req.body, {
+          where: {
+              id: req.params.id,
+          },
+      });
+      if (!fridgeData[0]) {
+          res.status(404).json({ message: 'No fridge with this id!' });
+          return;
+      }
+      res.status(200).json(fridgeData);
+  } catch (err) {
+      res.status(500).json(err);
+  }
+});
+
+// Delete a fridge
+router.delete('/:id', async (req, res) => {
+  try {
+      const fridgeData = await Fridge.destroy({
+          where: {
+              id: req.params.id,
+          },
+      });
+      if (!fridgeData) {
+          res.status(404).json({ message: 'No fridge with this id!' });
+          return;
+      }
+      res.status(200).json(fridgeData);
+  } catch (err) {
+      res.status(500).json(err);
   }
 });
 
