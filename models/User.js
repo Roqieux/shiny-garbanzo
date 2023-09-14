@@ -24,7 +24,7 @@ User.init(
       username: {
         type: DataTypes.STRING,
         unique: true,
-        allownull: flase
+        allownull: false
 
       },
       email: {
