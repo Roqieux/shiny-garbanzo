@@ -15,27 +15,30 @@ Item.init(
       },
       item_name: {
         type: DataTypes.STRING,
-        allowNull: false
+
       },
-      FridgeId: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      fridge_id: {
+        type: DataTypes.INTEGER,
+
         references: {
             model: 'fridge',
             key: 'id',
           }
       },
-      Expiration_date: {
+      user_id: {
+        type: DataTypes.INTEGER,
+
+        references: {
+          model: 'user',
+          key: 'id',
+        }
+      },
+      expiration_date: {
         type: DataTypes.STRING,
-        allowNull: false
+
       },
       is_frozen:{
         type: DataTypes.BOOLEAN,
-        allowNull: false
-      },
-      OwnerID: {
-        type: DataTypes.INTEGER,
-        allowNull: false
       }
     },
     {

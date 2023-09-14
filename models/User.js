@@ -15,23 +15,28 @@ User.init(
       },
       first_name: {
         type: DataTypes.STRING,
-        allowNull: false
+
       },
       last_name: {
         type: DataTypes.STRING,
-        allowNull: false
+
       },
       username: {
         type: DataTypes.STRING,
-        allowNull: false
+        unique: true,
+        allownull: flase
+
       },
       email: {
         type: DataTypes.STRING,
+        unique: true,
         allowNull: false
+
       },
       Password: {
         type: DataTypes.INTEGER,
         allowNull: false
+
       },
     },
     {
