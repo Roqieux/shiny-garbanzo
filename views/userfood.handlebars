@@ -17,4 +17,11 @@
             <button>delete</button>
         </li>
     </ul>
+
+   <h3 class="user-title">{{user.username}}'s items</h3>
+   <ul>
+   {{#each user.Items as |item|}}
+   <li>{{item_name}}: Expires on {{expiration_date}}</li>
+   {{/each}}
+   </ul>
 </section>
