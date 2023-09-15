@@ -4,7 +4,6 @@ const sequelize = require('../config/connection.js');
 
 class Item extends Model {}
 
-
 Item.init(
     {
       // define columns
