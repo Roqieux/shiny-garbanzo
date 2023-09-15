@@ -23,7 +23,6 @@ router.get('/', async (req, res) => {
 // get a fridge's food 
 router.get('/fridgefood/:id', async (req, res) => {
   try {
-    //show a list of users fridges
     const fridgeData = await Fridge.findByPk(req.params.id, {
       include: [{ model: Item }]
     });

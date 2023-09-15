@@ -34,6 +34,7 @@ const mapIconClickEventHandler = async (event) => {
     //Insert Code Here
 }
 
+// Called on page render, initializes map
 async function initMap() {
     const { Map, InfoWindow } = await google.maps.importLibrary("maps");
     const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
@@ -45,7 +46,7 @@ async function initMap() {
 
     // const infoWindow = new InfoWindow();
 
-    // todo update fetch route on implementation
+    // Retrieves fridges from database
     const fridges = await fetch('/api/fridges', {
         method: 'GET'
     })
@@ -54,9 +55,10 @@ async function initMap() {
         })
         .then(function (data) {
             console.log(data);
+            return data;
         });
 
-    // Todo: insert for-loop here at next curly bracket
+    // For-loop to create marker for each fridge
     for (const fridge of fridges) {
         const addressString = fridge.coords.replaceAll(' ', '+');
 
@@ -118,8 +120,7 @@ async function initMap() {
                 // })
                 marker.addListener('click', () => {
                     console.log('Tickle-Tickle!');
-                    // todo: change href/redirect
-                    window.location.href = './testy.html';
+                    window.location.href = `/fridgefood/:${fridge.id}`;
                 })
             })
     };
