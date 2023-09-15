@@ -21,18 +21,19 @@ router.get('/', async (req, res) => {
 });
 
 // get a users fridges
-router.get('/userfridges/:id', withAuth, async (req, res) => {
+router.get('/userfridges/:id',  async (req, res) => {
   try {
     //show a list of users fridges
-    const userData = await User.findByPk(req.params.user_id, {
+    const userData = await User.findByPk(req.params.id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Fridge }]
     });
 
-    const fridges = userData.map((display) => display.get({ plain: true }));
+    const data = userData.get({ plain: true });
 
+    console.log(data)
     res.render('userfridges', {
-      fridges,
+      data,
       logged_in: req.session.logged_in,
     });
   } catch (err) {

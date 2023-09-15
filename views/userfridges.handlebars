@@ -1,3 +1,4 @@
+
 <main class="bg-custom container border rounded logcont container-fluid p-5 mt-5" id="content">
             <section class="d-flex flex-wrap align-items-center justify-content-center stuff">
                 <h1 id="title">What's in my Phridge?</h1>
@@ -21,4 +22,16 @@
                 <div class="push"></div>
             </section>
             
+            <section class="placeholdertext">
+
+                <h3 class="username-title">{{data.username}}'s Fridges</h3>
+
+                {{#each data.fridges as |fridge|}}
+                {{>fridge-details}}
+                {{/each}}
+
+
+            </section>
+            
         </main>
+
