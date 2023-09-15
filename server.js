@@ -19,7 +19,7 @@ const hbs = exphbs.create({});
 const sess = {
   secret: process.env.SESSION_SECRET,
   cookie: {},
-  resave: false,
+  resave: true,
   saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize

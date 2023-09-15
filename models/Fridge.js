@@ -1,9 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
-
 const sequelize = require('../config/connection.js');
 
 class Fridge extends Model {}
-
 
 Fridge.init(
     {

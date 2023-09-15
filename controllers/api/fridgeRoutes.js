@@ -12,7 +12,27 @@ router.post('/', withAuth, async (req, res) => {
     const fridgeData = await Fridge.create(req.body);
     res.status(200).json(fridgeData);
   } catch (err) {
-      res.status(500).json(err);
+    res.status(500).json(err);
+  }
+});
+
+// Get all fridges
+router.get('/', async (req, res) => {
+  try {
+    const fridgeData = await Fridge.findAll();
+    console.log(fridgeData)
+    if (!fridgeData) {
+      res.status(404).json({ message: 'No fridge with this id!' });
+      return;
+    }
+    const fridges = fridgeData.map(fridge => {
+      return fridge.get({ plain: true });
+    });
+    console.log(fridges);
+    res.status(200).json(fridgeData);
+    // res.render('all', fridges);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
@@ -24,45 +44,45 @@ router.get('/:id', async (req, res) => {
       res.status(404).json({ message: 'No fridge with this id!' });
       return;
     }
-      res.status(200).json(fridgeData);
+    res.status(200).json(fridgeData);
   } catch (err) {
-      res.status(500).json(err);
+    res.status(500).json(err);
   }
 });
 
 // Update a fridge 
 router.put('/:id', async (req, res) => {
   try {
-      const fridgeData = await Fridge.update(req.body, {
-          where: {
-              id: req.params.id,
-          },
-      });
-      if (!fridgeData[0]) {
-          res.status(404).json({ message: 'No fridge with this id!' });
-          return;
-      }
-      res.status(200).json(fridgeData);
+    const fridgeData = await Fridge.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (!fridgeData[0]) {
+      res.status(404).json({ message: 'No fridge with this id!' });
+      return;
+    }
+    res.status(200).json(fridgeData);
   } catch (err) {
-      res.status(500).json(err);
+    res.status(500).json(err);
   }
 });
 
 // Delete a fridge
 router.delete('/:id', async (req, res) => {
   try {
-      const fridgeData = await Fridge.destroy({
-          where: {
-              id: req.params.id,
-          },
-      });
-      if (!fridgeData) {
-          res.status(404).json({ message: 'No fridge with this id!' });
-          return;
-      }
-      res.status(200).json(fridgeData);
+    const fridgeData = await Fridge.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (!fridgeData) {
+      res.status(404).json({ message: 'No fridge with this id!' });
+      return;
+    }
+    res.status(200).json(fridgeData);
   } catch (err) {
-      res.status(500).json(err);
+    res.status(500).json(err);
   }
 });
 
