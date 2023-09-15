@@ -18,9 +18,9 @@
         </li>
     </ul>
 
-   <h3 class="user-title">{{user.username}}'s items</h3>
+   <h3 class="user-title">{{data.username}}'s items</h3>
    <ul>
-   {{#each user.Items as |item|}}
+   {{#each data.Items as |item|}}
    <li>{{item_name}}: Expires on {{expiration_date}}</li>
    {{/each}}
    </ul>

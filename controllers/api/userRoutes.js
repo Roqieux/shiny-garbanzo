@@ -1,6 +1,15 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+router.get('/', async (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('login');
+})
+
 //create a new user
 router.post('/', async (req, res) => {
   try {
@@ -9,6 +18,8 @@ router.post('/', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
+
+      console.log(userData)
 
       res.status(200).json(userData);
     });
@@ -41,6 +52,8 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
+
+      console.log(userData)
       
       res.json({ user: userData, message: 'You are now logged in!' });
     });
