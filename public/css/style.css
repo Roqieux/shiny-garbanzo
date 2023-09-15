@@ -1,12 +1,10 @@
-
-
-#backroundI{
+#backroundI {
     background-image: url(../images/IMG_8999.jpg);
     background-size: cover;
 }
 
 .border {
-    border: 6px solid #ffc107!important;
+    border: 6px solid #ffc107 !important;
 }
 
 #content {
@@ -18,9 +16,25 @@
     opacity: 95%;
 }
 
+.map-page {
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+.map-page,
+.map-page::before,
+.map-page::after {
+    box-sizing: inherit;
+}
+
+#map {
+    height: 80vh;
+    width: 35vw;
+}
+
 
 @media (min-width: 1200px) {
-    .container{
+    .container {
         max-width: 1500px;
     }
 
