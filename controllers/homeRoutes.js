@@ -6,13 +6,13 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     // Show the homepage
-    const fridgeData = await Fridge.findAll({
-    });
+    const fridgeData = await Fridge.findAll();
 
-    const fridges = fridgeData.map((display) => display.get({ plain: true }));
-
+    const fridges = fridgeData.map((project) => project.get({ plain: true }));    
+    console.log(fridges)
     res.render('homepage', {
       fridges,
+      user_id: req.session.user_id,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -21,10 +21,10 @@ router.get('/', async (req, res) => {
 });
 
 // get a users fridges
-router.get('/userfridges/:id',  async (req, res) => {
+router.get('/userfridges',  async (req, res) => {
   try {
     //show a list of users fridges
-    const userData = await User.findByPk(req.params.id, {
+    const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Fridge }]
     });
@@ -42,39 +42,19 @@ router.get('/userfridges/:id',  async (req, res) => {
 });
 
 // get a users food 
-router.get('/useritems/:id', withAuth, async (req, res) => {
+router.get('/useritems', async (req, res) => {
   try {
     //show a list of users fridges
-    const userData = await User.findByPk(req.params.user_id, {
+    const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Item }]
     });
 
-    const fridges = userData.map((display) => display.get({ plain: true }));
+    const data = userData.get({ plain: true });
 
-    res.render('useritems', {
-      fridges,
+    res.render('userfood', {
+      data,
       logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
-    });
-
-    const user = userData.get({ plain: true });
-
-    res.render('profile', {
-      ...user,
-      logged_in: true
     });
   } catch (err) {
     res.status(500).json(err);
@@ -84,7 +64,7 @@ router.get('/profile', withAuth, async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/login');
+    res.redirect('/');
     return;
   }
 
