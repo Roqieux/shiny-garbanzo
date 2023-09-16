@@ -11,7 +11,7 @@ Phree Philly Phridge is a application that helps our community locate refridgera
 
 Please visit this website to see our application:
 
-[Deployed application](https://git.heroku.com/shiny-garbonzo.git)
+[Deployed application](https://shiny-garbonzo-75c1ae74f81a.herokuapp.com/)
 [Github Repository](https://github.com/Roqieux/shiny-garbanzo)
 
 ## Contributions
