@@ -13,23 +13,35 @@
 
             </h1>
         </header>
-        <main class="bg-custom container border rounded logcont container-fluid p-5 mt-5" id="content">
-            <section class="d-flex flex-wrap align-items-center justify-content-center stuff">
-                <h1 id="title">Phree Philly Phridge</h1>
-                <div class="push mt-500px"></div>
-                <section class="mb-4">
-                    <h2 id="login">Login</h2>
-                    <input class="textbox" type="text" placeholder="Username">
-                    <input class="textbox" type="password" placeholder='Password'>
-                </section>
-                <div class="push"></div>
-                <section class="mt-4 mx-3">
-                    <button class="logbtn mx-3">Login</button>
-                    <button class="logbtn mx-3">Register</button>
-                </section>
-            </section>
+        <main class=" container border rounded homecont container-fluid p-5 mt-5" id="content">
+            <section class="d-flex justify-content-around logbtnArea"></section>
+           <button class="logbtn" id="login-button">Login</button>
+           <button class="logbtn" id="logout">Logout</button>
+           <button class="logbtn" id="useritems-button">Veiw my Foods</button>
+           <button class="logbtn" id="userfridges-button">View My Fridges</button>
+              </section>
+           <div class="map-page">
+             <section>
             
-        </main>
+               <div id="map"></div>
+             </section>
+             <section>
+         
+               <h1>My Fridges</h1>
+               <ul>
+     
+               </ul>
+             </section>
+           </div>
+           
+           <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+           <script src="/home.js"></script>
+           <script src="/logout.js"></script>
+           <script
+             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6L6whRm8FlsozW7lN8bUic-Jh8uClIyU&map_ids=481e26f102ca36c2&callback=initMap">
+             </script>
+    
+           </main>
     </div>
 </body>
 

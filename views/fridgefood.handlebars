@@ -1,10 +1,13 @@
  <main class="bg-custom container border rounded logcont container-fluid p-5 mt-5" id="content">
-            <section class="d-flex flex-wrap align-items-center justify-content-center stuff">
+            <section class="d-flex flex-column flex-wrap align-items-center justify-content-center stuff">
                 <h1 id="title">Add Foods!</h1>
+                {{data.fridge_name}}
                 <div class="push mt-500px"></div>
                 <section class="mb-4">
                     <input class="textbox" type="Fridge" placeholder="Fridge">
                     <section class="mt-4 mx-3">
+                        
+                        {{!-- look at models --}}
                         <button class="logbtn mx-3">Add +</button>
                     </section>
                     <input class="textbox" type="Freezer" placeholder='Freezer'>
