@@ -20,13 +20,24 @@ const viewMyFridgesEventHandler = async (event) => {
     event.preventDefault();
     console.log('testy!');
 
-    //Insert Code Here
+    const response = await fetch(`/userfridges`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    });
+
+    console.log(response);
+    if (response.ok) {
+        document.location.replace('/userfridges')
+    } else {
+        alert('something went wrong')
+    }
+
+
 };
 
 const loginBtnEventHandler = async (event) => {
     event.preventDefault();
 
-    //Insert Code Here
     const response = await fetch(`/login`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
