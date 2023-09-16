@@ -69,7 +69,7 @@ router.get('/useritems', async (req, res) => {
 
     const data = userData.get({ plain: true });
 
-    res.render('userfood', {
+    res.render('useritems', {
       data,
       logged_in: req.session.logged_in,
     });
