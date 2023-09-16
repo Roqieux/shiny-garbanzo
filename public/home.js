@@ -1,12 +1,12 @@
 const viewMyFoodEventHandler = async (event) => {
     event.preventDefault();
 
-
     const response = await fetch(`/useritems`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
     });
 
+    console.log(response);
     if (response.ok) {
         document.location.replace('/useritems')
     } else {
@@ -16,8 +16,9 @@ const viewMyFoodEventHandler = async (event) => {
 
 };
 
-const viewMyFridgesEventhandler = async (event) => {
-
+const viewMyFridgesEventHandler = async (event) => {
+    event.preventDefault();
+    console.log('testy!');
 
     //Insert Code Here
 };
@@ -26,8 +27,21 @@ const loginBtnEventHandler = async (event) => {
     event.preventDefault();
 
     //Insert Code Here
+    const response = await fetch(`/login`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+        document.location.replace('/login')
+    } else {
+        alert('something went wrong')
+    }
+
+
 };
 
+// todo: integrate this eventhandler function into markers
 const mapIconClickEventHandler = async (event) => {
     event.preventDefault();
 
@@ -54,7 +68,7 @@ async function initMap() {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
+            // console.log(data);
             return data;
         });
 
@@ -66,9 +80,9 @@ async function initMap() {
         fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${addressString},+Philadelphia,+PA&key=AIzaSyD6L6whRm8FlsozW7lN8bUic-Jh8uClIyU`)
             .then((response) => response.json())
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 const locLatLng = data.results[0].geometry.location;
-                console.log(locLatLng)
+                // console.log(locLatLng)
 
                 // Glyph image element for markers
                 const glyphImg = document.createElement('div');
@@ -106,7 +120,7 @@ async function initMap() {
                     // remove title when fridge card is complete?
                     title: fridge.fridge_name
                 })
-                console.log(marker.position);
+                // console.log(marker.position);
 
                 // marker.addListener('click', ({ domEvent, locLatLng }) => {
                 //   console.log('Toot-Toot!');
@@ -120,7 +134,8 @@ async function initMap() {
                 // })
                 marker.addListener('click', () => {
                     console.log('Tickle-Tickle!');
-                    window.location.href = `/fridgefood/:${fridge.id}`;
+                    // todo: change to get fetch function
+                    window.location.href = `/fridgefood/${fridge.id}`;
                 })
             })
     };
@@ -129,5 +144,6 @@ async function initMap() {
 
 
 
-
-document.querySelector('#userfoods-button').addEventListener('click', viewMyFoodEventHandler);
+document.querySelector('#login-button').addEventListener('click', loginBtnEventHandler);
+document.querySelector('#useritems-button').addEventListener('click', viewMyFoodEventHandler);
+document.querySelector('#userfridges-button').addEventListener('click', viewMyFridgesEventHandler);
