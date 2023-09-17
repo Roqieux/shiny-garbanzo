@@ -52,6 +52,25 @@ const loginBtnEventHandler = async (event) => {
 
 };
 
+let viewedFridge;
+const mapIconClickEventHandler = async (event) => {
+    event.preventDefault();
+    console.log(viewedFridge);
+
+    const response = await fetch(`/fridgefood/${viewedFridge}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    });
+
+    console.log(response);
+    if (response.ok) {
+        document.location.replace(`/fridgefood/${viewedFridge}`)
+    } else {
+        alert('something went wrong')
+    }
+
+};
+
 // Called on page render, initializes map
 async function initMap() {
     const { Map, InfoWindow } = await google.maps.importLibrary("maps");
@@ -62,8 +81,6 @@ async function initMap() {
         zoom: 12,
     });
 
-    // const infoWindow = new InfoWindow();
-
     // Retrieves fridges from database
     const fridges = await fetch('/api/fridges', {
         method: 'GET'
@@ -72,7 +89,6 @@ async function initMap() {
             return response.json();
         })
         .then(function (data) {
-            // console.log(data);
             return data;
         });
 
@@ -84,9 +100,7 @@ async function initMap() {
         fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${addressString},+Philadelphia,+PA&key=AIzaSyD6L6whRm8FlsozW7lN8bUic-Jh8uClIyU`)
             .then((response) => response.json())
             .then((data) => {
-                // console.log(data);
                 const locLatLng = data.results[0].geometry.location;
-                // console.log(locLatLng)
 
                 // Glyph image element for markers
                 const glyphImg = document.createElement('div');
@@ -97,45 +111,18 @@ async function initMap() {
                     background: '#ffff00',
                     borderColor: '#00d9ff',
                 });
-
-                // // Map card builder function
-                // function buildContent(fridge) {
-                //   console.log(pin.element)
-                //   const content = document.createElement("div");
-
-                //   content.classList.add("fridge-card");
-                //   content.innerHTML = `
-                //     <div class="details container-fluid">
-                //         <div class="name">${fridge.fridge_name}</div>
-                //         <div class="address">${fridge.coords}</div>
-                //         <div class="features">
-                //           <a class="btn btn-primary btn-sm mt-4" href="./testy.html" role="button">Get Started</a>
-                //         </div>
-                //     </div>
-                //     `;
-                //   return content;
-                // }
+                pin.element.setAttribute('type', 'button');
+                pin.element.setAttribute('data-bs-toggle', 'modal');
+                pin.element.setAttribute('data-bs-target', '#fridgeModal');
 
                 const marker = new AdvancedMarkerElement({
                     map,
-                    // content: buildContent(fridge),
                     content: pin.element,
                     position: locLatLng,
-                    // remove title when fridge card is complete?
+                    // todo: remove title when fridge card is complete
                     title: fridge.fridge_name
                 })
-                // console.log(marker.position);
 
-                // marker.addListener('click', ({ domEvent, locLatLng }) => {
-                //   console.log('Toot-Toot!');
-                //   console.log(pin.element);
-                //   console.log(buildContent(location));
-                //   const { target } = domEvent;
-
-                //   // infoWindow.close();
-                //   // infoWindow.setContent(marker.title);
-                //   // infoWindow.open(marker.map, marker);
-                // })
                 marker.addListener('click', () => {
                     console.log('Tickle-Tickle!');
                     // todo: move redirect to modal button
@@ -151,3 +138,4 @@ async function initMap() {
 document.querySelector('#login-button').addEventListener('click', loginBtnEventHandler);
 document.querySelector('#useritems-button').addEventListener('click', viewMyFoodEventHandler);
 document.querySelector('#userfridges-button').addEventListener('click', viewMyFridgesEventHandler);
+document.querySelector('.fridge-btn').addEventListener('click', mapIconClickEventHandler);
