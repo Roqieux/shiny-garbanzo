@@ -74,6 +74,10 @@
     margin-right: 15vh;
 }
 
+.closebtn {
+    margin-left: 20vh;
+}
+
 .mapcont {
     height: 90%;
     width: 90vh !important;

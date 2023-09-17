@@ -50,11 +50,13 @@ const signupFormHandler = async (event) => {
 const signupSpawnpoint = async () => {
   const spawnpoint = await document.querySelector('.modal-spawnpoint');
   spawnpoint.innerHTML = `
-  <div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="modal-title">User Registration</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<div class="modal-dialog">
+  <div class="modal-content d-flex flex-column bg-custom container border rounded logcont container-fluid p-5 mt-5 stuff" id="content">
+    <div class="align-items-end">  
+      <button type="button" class="btn-close logbtn closebtn" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-header justify-content-center">
+      <h5 class="modal-title my-0 fs-1" id="title">User Signup</h5>
     </div>
     <div class="modal-body">
       <form>
