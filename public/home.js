@@ -81,6 +81,30 @@ async function initMap() {
         zoom: 12,
     });
 
+    document.querySelector('.modal-spawnpoint').innerHTML = `
+<div class="modal-dialog modal-fullscreen-md-down">
+    <div class="modal-content rounded-6 shadow">
+      <div class="modal-body p-5">
+        <div class="d-flex">
+          <h2 class="fw-bold mb-0 modal-title">Fridge</h2>
+          <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <ul class="d-grid gap-4 my-5 list-unstyled">
+          <li class="d-flex gap-4">
+            <i class="material-icons" style="font-size:48px">kitchen</i>
+            <div>
+              <h5 class="mb-0 modal-address">Location:</h5>
+            </div>
+          </li>
+        </ul>
+        <button type="button" class="btn btn-lg btn-primary fridge-btn mt-5 w-100" data-bs-dismiss="modal">Open
+          Fridge</button>
+      </div>
+    </div>
+  </div>`
+
+    document.querySelector('.fridge-btn').addEventListener('click', mapIconClickEventHandler);
+
     // Retrieves fridges from database
     const fridges = await fetch('/api/fridges', {
         method: 'GET'
@@ -113,7 +137,7 @@ async function initMap() {
                 });
                 pin.element.setAttribute('type', 'button');
                 pin.element.setAttribute('data-bs-toggle', 'modal');
-                pin.element.setAttribute('data-bs-target', '#fridgeModal');
+                pin.element.setAttribute('data-bs-target', '#modal');
 
                 const marker = new AdvancedMarkerElement({
                     map,
@@ -125,8 +149,11 @@ async function initMap() {
 
                 marker.addListener('click', () => {
                     console.log('Tickle-Tickle!');
-                    // todo: move redirect to modal button
-                    window.location.href = `/fridgefood/${fridge.id}`;
+
+                    viewedFridge = fridge.id;
+
+                    document.querySelector('.modal-title').textContent = fridge.fridge_name;
+                    document.querySelector('.modal-address').textContent = 'Location: ' + fridge.coords;
                 })
             })
     };
@@ -138,4 +165,4 @@ async function initMap() {
 document.querySelector('#login-button').addEventListener('click', loginBtnEventHandler);
 document.querySelector('#useritems-button').addEventListener('click', viewMyFoodEventHandler);
 document.querySelector('#userfridges-button').addEventListener('click', viewMyFridgesEventHandler);
-document.querySelector('.fridge-btn').addEventListener('click', mapIconClickEventHandler);
+// document.querySelector('.fridge-btn').addEventListener('click', mapIconClickEventHandler);
