@@ -30,8 +30,9 @@ const signupFormHandler = async (event) => {
   const username = document.querySelector('#username-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
+  const passwordConfirm = document.querySelector('#password-confirm').value.trim();
 
-  if (firstname && lastname && username && email && password) {
+  if (firstname && lastname && username && email && password && password === passwordConfirm) {
     const response = await fetch('/api/users', {
       method: 'POST',
       body: JSON.stringify({ firstname, lastname, username, email, password }),
@@ -46,10 +47,54 @@ const signupFormHandler = async (event) => {
   }
 };
 
+const signupSpawnpoint = async () => {
+  const spawnpoint = await document.querySelector('.modal-spawnpoint');
+  spawnpoint.innerHTML = `
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="modal-title">User Registration</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="mb-3">
+          <label for="first_name-signup" class="col-form-label">First Name:</label>
+          <input type="text" class="form-control" id="first_name-signup">
+        </div>
+        <div class="mb-3">
+          <label for="last_name-signup" class="col-form-label">Last Name:</label>
+          <input type="text" class="form-control" id="last_name-signup">
+        </div>
+        <div class="mb-3">
+          <label for="email-signup" class="col-form-label">Email:</label>
+          <input type="text" class="form-control" id="email-signup">
+        </div>
+        <div class="mb-3">
+          <label for="username-signup" class="col-form-label">Username:</label>
+          <input type="text" class="form-control" id="username-signup">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="col-form-label">Password:</label>
+          <input type="password" class="form-control" id="password-signup">
+        </div>
+        <div class="mb-3">
+          <label for="password-confirm" class="col-form-label">Confirm Password:</label>
+          <input type="password" class="form-control" id="password-confirm">
+        </div>
+        <div>
+          <input type="submit" class="btn btn-warning" id="signup-form" value="Submit">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>`;
+
+  document.addEventListener('submit', signupFormHandler);
+};
+
 document
   .querySelector('#login-form')
   .addEventListener('click', loginFormHandler);
 
-document
-  .querySelector('#signup-form')
-  .addEventListener('click', signupFormHandler);
+document.addEventListener('DOMContentLoaded', signupSpawnpoint);

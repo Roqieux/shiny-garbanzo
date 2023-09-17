@@ -18,10 +18,10 @@
     {{{ body }}}
 
   </div>
-  
+
   {{!-- This only works if it isn't nested --}}
-  <div class="modal fade modal-spawnpoint" id="modal" tabindex="-1" aria-labelledby="fridgeModalLabel"
-    aria-hidden="true">
+  <div class="modal fade modal-spawnpoint" id="modal" data-bs-backdrop="static" tabindex="-1"
+    aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen-md-down">
       <div class="modal-content rounded-6 shadow">
         <div class="modal-body p-5">
@@ -38,7 +38,7 @@
               </div>
             </li>
           </ul>
-          <button type="button" class="btn btn-lg btn-primary fridge-btn mt-5 w-100" data-bs-dismiss="modal">Open
+          <button type="button" class="btn btn-lg btn-warning fridge-btn mt-5 w-100" data-bs-dismiss="modal">Open
             Fridge</button>
         </div>
       </div>
