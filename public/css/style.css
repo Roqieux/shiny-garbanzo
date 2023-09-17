@@ -19,6 +19,7 @@
 .map-page {
     box-sizing: border-box;
     font-size: 100%;
+    margin-top: 2em;
 }
 
 .map-page,
@@ -28,8 +29,8 @@
 }
 
 #map {
-    height: 80vh;
-    width: 35vw;
+    height: 70vh;
+    width: 50vw;
 }
 
 
