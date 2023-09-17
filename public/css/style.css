@@ -1,18 +1,21 @@
 * {
-    font-family:Georgia, 'Times New Roman', Times, serif
-} 
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
 
 #backroundI {
     background-image: url(../images/IMG_8999.jpg);
     background-size: cover;
-    
+
 }
 
-.fridgelist{
+.fridgelist {
     font-size: 30px;
-    white-space: nowrap;       /* Prevent text from wrapping */
-    overflow: hidden;          /* Hide any overflowing text */
-    text-overflow: ellipsis;   /* Show ellipsis (...) for overflowing text */
+    white-space: nowrap;
+    /* Prevent text from wrapping */
+    overflow: hidden;
+    /* Hide any overflowing text */
+    text-overflow: ellipsis;
+    /* Show ellipsis (...) for overflowing text */
     max-width: 100%;
     overflow-x: auto;
     height: 100%;
@@ -22,7 +25,7 @@
     border: 6px solid #ffc107 !important;
 }
 
-.textbox{
+.textbox {
     padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
@@ -32,30 +35,30 @@
     font-size: 20px;
 }
 
-.push{
+.push {
     width: 1000vh;
 }
 
-#login{
+#login {
     font-size: 40px;
     margin-bottom: 20%;
 }
 
-.FridgeManageCont{
+.FridgeManageCont {
     max-width: 1750px
 }
 
-#title{
+#title {
     font-size: 75px;
     margin-bottom: 60px;
     margin-top: 10vh;
 }
 
-.stuff{
+.stuff {
     opacity: 100%;
 }
 
-.logbtn{
+.logbtn {
     padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
@@ -66,23 +69,25 @@
     background-color: yellow;
 }
 
-.logbtnArea{
+.logbtnArea {
     margin-left: 15vh;
     margin-right: 15vh;
 }
 
 .mapcont {
     height: 90%;
-    width: 90vh !important; /* Adjust the width to your desired size */
-    margin: 0 auto; /* Center the container horizontally */
+    width: 90vh !important;
+    /* Adjust the width to your desired size */
+    margin: 0 auto;
+    /* Center the container horizontally */
 }
 
-.logcont{
-    max-width: 900px; 
-      opacity: 85%;
+.logcont {
+    max-width: 900px;
+    opacity: 85%;
 }
 
-.homecont{
+.homecont {
     opacity: 98%;
     max-width: 1750px;
 }
@@ -93,20 +98,22 @@
     height: 88%;
     overflow-y: auto;
     overflow-x: hidden;
- 
+    margin-top: -2em;
 }
 
 .textbox-container {
     display: inline-block;
-    margin-right: 10px; /* Adjust the margin as needed */
+    margin-right: 10px;
+    /* Adjust the margin as needed */
 }
 
-.FridgeManageCont{
+.FridgeManageCont {
     opacity: 90%;
 }
+
 #map {
-    height: 70vh;
-    width: 50vw;
+    height: 62vh;
+    width: 80vw;
 }
 
 .map-page,
@@ -120,35 +127,40 @@
     font-size: 100%;
     margin-top: 2em;
 }
- 
-.logbtn:hover{
+
+.logbtn:hover {
     background-color: darkgoldenrod;
 }
 
- @media (min-width: 1200px) {
-    .logcont{
+@media (min-width: 1200px) {
+    .logcont {
         max-width: 1000px;
     }
-} 
+}
+
 @media (min-width: 2000px) {
-    .logcont{
+    .logcont {
         max-width: 1000px;
     }
-    #login{
+
+    #login {
         font-size: 75px;
         margin-bottom: 30%;
         margin-top: 10%;
     }
-} 
+}
+
 @media (max-width: 700px) {
-    .logcont{
+    .logcont {
         max-width: 500px;
     }
-    #title{
+
+    #title {
         margin-top: 5vh;
         font-size: 60px;
     }
-    .textbox{
+
+    .textbox {
         margin-bottom: 2vh;
     }
 }
