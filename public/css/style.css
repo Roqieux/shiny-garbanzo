@@ -1,10 +1,90 @@
+* {
+    font-family:Georgia, 'Times New Roman', Times, serif
+} 
+
 #backroundI {
     background-image: url(../images/IMG_8999.jpg);
     background-size: cover;
+    
+}
+
+.fridgelist{
+    font-size: 30px;
+    white-space: nowrap;       /* Prevent text from wrapping */
+    overflow: hidden;          /* Hide any overflowing text */
+    text-overflow: ellipsis;   /* Show ellipsis (...) for overflowing text */
+    max-width: 100%;
+    overflow-x: auto;
+    height: 100%;
 }
 
 .border {
     border: 6px solid #ffc107 !important;
+}
+
+.textbox{
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 25px;
+    border-color: black;
+    border-width: 2px;
+    font-size: 20px;
+}
+
+.push{
+    width: 1000vh;
+}
+
+#login{
+    font-size: 40px;
+    margin-bottom: 20%;
+}
+
+.FridgeManageCont{
+    max-width: 1750px
+}
+
+#title{
+    font-size: 75px;
+    margin-bottom: 60px;
+    margin-top: 10vh;
+}
+
+.stuff{
+    opacity: 100%;
+}
+
+.logbtn{
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 25px;
+    border-color: black;
+    border-width: 2px;
+    font-size: 15px;
+    background-color: yellow;
+}
+
+.logbtnArea{
+    margin-left: 15vh;
+    margin-right: 15vh;
+}
+
+.mapcont {
+    height: 90%;
+    width: 90vh !important; /* Adjust the width to your desired size */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+.logcont{
+    max-width: 900px; 
+      opacity: 85%;
+}
+
+.homecont{
+    opacity: 98%;
+    max-width: 1750px;
 }
 
 #content {
@@ -13,13 +93,20 @@
     height: 88%;
     overflow-y: auto;
     overflow-x: hidden;
-    opacity: 95%;
+ 
 }
 
-.map-page {
-    box-sizing: border-box;
-    font-size: 100%;
-    margin-top: 2em;
+.textbox-container {
+    display: inline-block;
+    margin-right: 10px; /* Adjust the margin as needed */
+}
+
+.FridgeManageCont{
+    opacity: 90%;
+}
+#map {
+    height: 70vh;
+    width: 50vw;
 }
 
 .map-page,
@@ -28,15 +115,40 @@
     box-sizing: inherit;
 }
 
-#map {
-    height: 70vh;
-    width: 50vw;
+.map-page {
+    box-sizing: border-box;
+    font-size: 100%;
+    margin-top: 2em;
+}
+ 
+.logbtn:hover{
+    background-color: darkgoldenrod;
 }
 
-
-@media (min-width: 1200px) {
-    .container {
-        max-width: 1500px;
+ @media (min-width: 1200px) {
+    .logcont{
+        max-width: 1000px;
     }
-
+} 
+@media (min-width: 2000px) {
+    .logcont{
+        max-width: 1000px;
+    }
+    #login{
+        font-size: 75px;
+        margin-bottom: 30%;
+        margin-top: 10%;
+    }
+} 
+@media (max-width: 700px) {
+    .logcont{
+        max-width: 500px;
+    }
+    #title{
+        margin-top: 5vh;
+        font-size: 60px;
+    }
+    .textbox{
+        margin-bottom: 2vh;
+    }
 }
