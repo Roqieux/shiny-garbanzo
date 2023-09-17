@@ -1,29 +1,29 @@
- <main class=" container border rounded homecont container-fluid p-5 mt-5" id="content">
- <section class="d-flex justify-content-around logbtnArea"></section>
-<button class="logbtn" id="login-button">Login</button>
-<button class="logbtn" id="logout">Logout</button>
-<button class="logbtn" id="useritems-button">Veiw my Foods</button>
-<button class="logbtn" id="userfridges-button">View My Fridges</button>
-   </section>
-<div class="map-page">
-  <section>
-    {{!-- add map here --}}
-    <div id="map"></div>
+<main class=" container border rounded homecont container-fluid p-5 mt-5" id="content">
+  <section class="d-flex justify-content-around logbtnArea">
+    <button class="logbtn" id="login-button">Login</button>
+    <button class="logbtn" id="logout">Logout</button>
+    <button class="logbtn" id="useritems-button">Veiw my Foods</button>
+    <button class="logbtn" id="userfridges-button">View My Fridges</button>
   </section>
-  <section>
-    {{!-- list of fridges --}}
-    <h1>My Fridges</h1>
-    <ul>
-      {{!-- list user's subscribed fridges here --}}
-    </ul>
-  </section>
-</div>
+  <div class="d-flex flex-row map-page">
+    <section>
+      {{!-- add map here --}}
+      <div id="map"></div>
+    </section>
+    <section>
+      {{!-- list of fridges --}}
+      <h1>My Fridges</h1>
+      <ul>
+        {{!-- list user's subscribed fridges here --}}
+      </ul>
+    </section>
+  </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="/home.js"></script>
-<script src="/logout.js"></script>
-<script
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6L6whRm8FlsozW7lN8bUic-Jh8uClIyU&map_ids=481e26f102ca36c2&callback=initMap">
-  </script>
-{{!-- TODO: Replace api key with more secure option before project submission --}}
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="/home.js"></script>
+  <script src="/logout.js"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6L6whRm8FlsozW7lN8bUic-Jh8uClIyU&map_ids=481e26f102ca36c2&callback=initMap">
+    </script>
+  {{!-- TODO: Replace api key with more secure option before project submission --}}
 </main>

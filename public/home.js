@@ -52,12 +52,24 @@ const loginBtnEventHandler = async (event) => {
 
 };
 
-// todo: integrate this eventhandler function into markers
+let viewedFridge;
 const mapIconClickEventHandler = async (event) => {
     event.preventDefault();
+    console.log(viewedFridge);
 
-    //Insert Code Here
-}
+    const response = await fetch(`/fridgefood/${viewedFridge}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    });
+
+    console.log(response);
+    if (response.ok) {
+        document.location.replace(`/fridgefood/${viewedFridge}`)
+    } else {
+        alert('something went wrong')
+    }
+
+};
 
 // Called on page render, initializes map
 async function initMap() {
@@ -65,11 +77,34 @@ async function initMap() {
     const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
     const map = new Map(document.getElementById("map"), {
         mapId: "481e26f102ca36c2",
-        center: { lat: 39.97774274569622, lng: -75.15607170327148 },
+        center: { lat: 39.98774274569622, lng: -75.16607170327148 },
         zoom: 12,
     });
 
-    // const infoWindow = new InfoWindow();
+    const spawnpoint = await document.querySelector('.modal-spawnpoint');
+    spawnpoint.innerHTML = `
+<div class="modal-dialog modal-fullscreen-md-down">
+    <div class="modal-content rounded-6 shadow">
+      <div class="modal-body p-5">
+        <div class="d-flex">
+          <h2 class="fw-bold mb-0 modal-title">Fridge</h2>
+          <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <ul class="d-grid gap-4 my-5 list-unstyled">
+          <li class="d-flex gap-4">
+            <i class="material-icons" style="font-size:48px">kitchen</i>
+            <div>
+              <h5 class="mb-0 modal-address">Location:</h5>
+            </div>
+          </li>
+        </ul>
+        <button type="button" class="btn btn-lg btn-primary fridge-btn mt-5 w-100" data-bs-dismiss="modal">Open
+          Fridge</button>
+      </div>
+    </div>
+  </div>`
+
+    document.querySelector('.fridge-btn').addEventListener('click', mapIconClickEventHandler);
 
     // Retrieves fridges from database
     const fridges = await fetch('/api/fridges', {
@@ -79,7 +114,6 @@ async function initMap() {
             return response.json();
         })
         .then(function (data) {
-            // console.log(data);
             return data;
         });
 
@@ -91,9 +125,7 @@ async function initMap() {
         fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${addressString},+Philadelphia,+PA&key=AIzaSyD6L6whRm8FlsozW7lN8bUic-Jh8uClIyU`)
             .then((response) => response.json())
             .then((data) => {
-                // console.log(data);
                 const locLatLng = data.results[0].geometry.location;
-                // console.log(locLatLng)
 
                 // Glyph image element for markers
                 const glyphImg = document.createElement('div');
@@ -104,49 +136,25 @@ async function initMap() {
                     background: '#ffff00',
                     borderColor: '#00d9ff',
                 });
-
-                // // Map card builder function
-                // function buildContent(fridge) {
-                //   console.log(pin.element)
-                //   const content = document.createElement("div");
-
-                //   content.classList.add("fridge-card");
-                //   content.innerHTML = `
-                //     <div class="details container-fluid">
-                //         <div class="name">${fridge.fridge_name}</div>
-                //         <div class="address">${fridge.coords}</div>
-                //         <div class="features">
-                //           <a class="btn btn-primary btn-sm mt-4" href="./testy.html" role="button">Get Started</a>
-                //         </div>
-                //     </div>
-                //     `;
-                //   return content;
-                // }
+                pin.element.setAttribute('type', 'button');
+                pin.element.setAttribute('data-bs-toggle', 'modal');
+                pin.element.setAttribute('data-bs-target', '#modal');
 
                 const marker = new AdvancedMarkerElement({
                     map,
-                    // content: buildContent(fridge),
                     content: pin.element,
                     position: locLatLng,
-                    // remove title when fridge card is complete?
+                    // todo: remove title when fridge card is complete
                     title: fridge.fridge_name
                 })
-                // console.log(marker.position);
 
-                // marker.addListener('click', ({ domEvent, locLatLng }) => {
-                //   console.log('Toot-Toot!');
-                //   console.log(pin.element);
-                //   console.log(buildContent(location));
-                //   const { target } = domEvent;
-
-                //   // infoWindow.close();
-                //   // infoWindow.setContent(marker.title);
-                //   // infoWindow.open(marker.map, marker);
-                // })
                 marker.addListener('click', () => {
                     console.log('Tickle-Tickle!');
-                    // todo: change to get fetch function
-                    window.location.href = `/fridgefood/${fridge.id}`;
+
+                    viewedFridge = fridge.id;
+
+                    document.querySelector('.modal-title').textContent = fridge.fridge_name;
+                    document.querySelector('.modal-address').textContent = 'Location: ' + fridge.coords;
                 })
             })
     };
@@ -158,3 +166,4 @@ async function initMap() {
 document.querySelector('#login-button').addEventListener('click', loginBtnEventHandler);
 document.querySelector('#useritems-button').addEventListener('click', viewMyFoodEventHandler);
 document.querySelector('#userfridges-button').addEventListener('click', viewMyFridgesEventHandler);
+// document.querySelector('.fridge-btn').addEventListener('click', mapIconClickEventHandler);
