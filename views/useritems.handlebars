@@ -1,24 +1,27 @@
 <main class="bg-custom container border rounded logcont container-fluid p-5 mt-5" id="content">
     {{>back-btn}}
-    <section>
-        <h2>Fridge1</h2>
-        <ul>
-            <li>
-                <p>food item</p>
-                <p>expiration</p>
-                <button>delete</button>
-            </li>
-        </ul>
-    </section>
-    <section>
-        <h2>Fridge2</h2>
-        <ul>
-            <li>
-                <p>food item</p>
-                <p>expiration</p>
-                <button>delete</button>
-            </li>
-        </ul>
+    <main class="bg-custom container border rounded logcont container-fluid p-5 mt-5" id="content">
+            <section class="d-flex flex-wrap align-items-center justify-content-center stuff">
+                <h1 id="title">What's in my Phridge?</h1>
+                <div class="push mt-500px"></div>
+                <section class="mb-4">
+                    <input class="textbox" type="Fridge" placeholder="Fridge Name A">
+                    <section class="mt-4 mx-3">
+                        <button class="logbtn mx-3">Remove</button>
+                    </section>
+                    <section class="mt-4 mx-3">
+                        <button class="logbtn mx-3">Add +</button>
+                    </section>
+                    <input class="textbox" type="Fridge" placeholder='Fridge Name'>
+                    <section class="mt-4 mx-3">
+                        <button class="logbtn mx-3">Remove</button>
+                    </section>
+                    <section class="mt-4 mx-3">
+                        <button class="logbtn mx-3">Add +</button>
+                    </section>
+                </section>
+                <div class="push"></div>
+            </section>
 
         <h3 class="user-title">{{data.username}}'s items</h3>
         <ul>
