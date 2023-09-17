@@ -81,7 +81,8 @@ async function initMap() {
         zoom: 12,
     });
 
-    document.querySelector('.modal-spawnpoint').innerHTML = `
+    const spawnpoint = await document.querySelector('.modal-spawnpoint');
+    spawnpoint.innerHTML = `
 <div class="modal-dialog modal-fullscreen-md-down">
     <div class="modal-content rounded-6 shadow">
       <div class="modal-body p-5">
