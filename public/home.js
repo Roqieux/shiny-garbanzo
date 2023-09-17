@@ -52,13 +52,6 @@ const loginBtnEventHandler = async (event) => {
 
 };
 
-// todo: integrate this eventhandler function into markers
-const mapIconClickEventHandler = async (event) => {
-    event.preventDefault();
-
-    //Insert Code Here
-}
-
 // Called on page render, initializes map
 async function initMap() {
     const { Map, InfoWindow } = await google.maps.importLibrary("maps");
@@ -145,7 +138,7 @@ async function initMap() {
                 // })
                 marker.addListener('click', () => {
                     console.log('Tickle-Tickle!');
-                    // todo: change to get fetch function
+                    // todo: move redirect to modal button
                     window.location.href = `/fridgefood/${fridge.id}`;
                 })
             })
