@@ -79,6 +79,7 @@ const newFridgeHandler = async (event) => {
       alert('Failed to Register New Phridge.');
     }
   }
+  // todo: make sure fridge-create works after fixing withAuth
 
 };
 

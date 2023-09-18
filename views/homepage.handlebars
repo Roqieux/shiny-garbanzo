@@ -1,14 +1,14 @@
 <main class="bg-custom container border rounded homecont container-fluid p-5 mt-5" id="content">
   {{#if logged_in}}
-    <section class="d-flex justify-content-around logbtnArea">
-      <button class="logbtn" id="logout">Logout</button>
-      <button class="logbtn" id="useritems-button">View my Foods</button>
-      <button class="logbtn" id="userfridges-button">View My Fridges</button>
-    </section>
+  <section class="d-flex justify-content-around logbtnArea">
+    <button class="logbtn" id="logout">Logout</button>
+    <button class="logbtn" id="useritems-button">View my Foods</button>
+    <button class="logbtn" id="userfridges-button">View My Fridges</button>
+  </section>
   {{else}}
-    <section class="d-flex justify-content-around logbtnArea">
-      <button class="logbtn" id="login-button">Login</button>
-    </section>
+  <section class="d-flex justify-content-around logbtnArea">
+    <button class="logbtn" id="login-button">Login</button>
+  </section>
   {{/if}}
   <div class="d-flex flex-row justify-content-center align-items-center map-page">
     {{!-- <section> --}}
@@ -29,7 +29,7 @@
   <script src="/home.js"></script>
   <script src="/logout.js"></script>
   <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6L6whRm8FlsozW7lN8bUic-Jh8uClIyU&map_ids=481e26f102ca36c2&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY_JvzvG40oCqsmQMyU5H3Z8E6MnT_ckw&map_ids=481e26f102ca36c2&callback=initMap">
     </script>
   {{!-- TODO: Replace api key with more secure option before project submission --}}
 </main>

@@ -122,7 +122,7 @@ async function initMap() {
         const addressString = fridge.coords.replaceAll(' ', '+');
 
         // Geocoder api call, convert address into coordinates
-        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${addressString},+Philadelphia,+PA&key=AIzaSyD6L6whRm8FlsozW7lN8bUic-Jh8uClIyU`)
+        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${addressString},+Philadelphia,+PA&key=AIzaSyDY_JvzvG40oCqsmQMyU5H3Z8E6MnT_ckw`)
             .then((response) => response.json())
             .then((data) => {
                 const locLatLng = data.results[0].geometry.location;
