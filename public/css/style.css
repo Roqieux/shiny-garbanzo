@@ -51,11 +51,11 @@
 #title {
     font-size: 75px;
     margin-bottom: 60px;
-    margin-top: 10vh;
+    margin-top: 0vh;
 }
 
-.stuff {
-    opacity: 100%;
+#lll{
+    margin-left: 30%;
 }
 
 .logbtn {
@@ -72,6 +72,10 @@
 .logbtnArea {
     margin-left: 15vh;
     margin-right: 15vh;
+}
+
+.closebtn {
+    margin-left: 20vh;
 }
 
 .mapcont {
@@ -153,6 +157,14 @@
 @media (max-width: 700px) {
     .logcont {
         max-width: 500px;
+    }
+
+    .homecont{
+        max-width: 500px;
+    }
+
+    #lll{
+        margin-left: auto;
     }
 
     #title {
