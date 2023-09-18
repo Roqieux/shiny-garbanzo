@@ -25,7 +25,7 @@ const viewMyFridgesEventHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
     });
 
-    console.log(response);
+    // console.log(response);
     if (response.ok) {
         document.location.replace('/userfridges')
     } else {
@@ -73,7 +73,7 @@ const mapIconClickEventHandler = async (event) => {
 
 // Called on page render, initializes map
 async function initMap() {
-    const { Map, InfoWindow } = await google.maps.importLibrary("maps");
+    const { Map } = await google.maps.importLibrary("maps");
     const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
     const map = new Map(document.getElementById("map"), {
         mapId: "481e26f102ca36c2",
