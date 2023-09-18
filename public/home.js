@@ -166,4 +166,5 @@ async function initMap() {
 document.querySelector('#login-button').addEventListener('click', loginBtnEventHandler);
 document.querySelector('#useritems-button').addEventListener('click', viewMyFoodEventHandler);
 document.querySelector('#userfridges-button').addEventListener('click', viewMyFridgesEventHandler);
+document.querySelector('#register-button').addEventListener('click', signupSpawnpoint);
 // document.querySelector('.fridge-btn').addEventListener('click', mapIconClickEventHandler);

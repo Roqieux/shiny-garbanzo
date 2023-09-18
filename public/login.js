@@ -90,7 +90,8 @@ const signupSpawnpoint = async () => {
   </div>
 </div>`;
 
-  document.addEventListener('submit', signupFormHandler);
+  const signupForm = spawnpoint.querySelector('form');
+  signupForm.addEventListener('submit', signupFormHandler);
 };
 
 document
