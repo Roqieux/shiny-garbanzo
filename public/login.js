@@ -84,8 +84,7 @@ const signupSpawnpoint = async () => {
   </div>
 </div>`;
 
-  const signupForm = spawnpoint.querySelector('form');
-  signupForm.addEventListener('submit', signupFormHandler);
+  document.addEventListener('submit', signupFormHandler);
 };
 
 document
