@@ -52,6 +52,21 @@ const loginBtnEventHandler = async (event) => {
 
 };
 
+const logout = async () => {
+    console.log('logout called!')
+    const response = await fetch('/api/users/logout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+        document.location.replace('/login');
+    } else {
+        alert(response.statusText);
+    }
+};
+
+
 let viewedFridge;
 const mapIconClickEventHandler = async (event) => {
     event.preventDefault();
@@ -70,7 +85,7 @@ const mapIconClickEventHandler = async (event) => {
     }
 
 };
-
+// todo: restore map once key works again
 // Called on page render, initializes map
 async function initMap() {
     const { Map } = await google.maps.importLibrary("maps");
@@ -122,7 +137,7 @@ async function initMap() {
         const addressString = fridge.coords.replaceAll(' ', '+');
 
         // Geocoder api call, convert address into coordinates
-        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${addressString},+Philadelphia,+PA&key=AIzaSyDY_JvzvG40oCqsmQMyU5H3Z8E6MnT_ckw`)
+        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${addressString},+Philadelphia,+PA&key=AIzaSyD6L6whRm8FlsozW7lN8bUic-Jh8uClIyU`)
             .then((response) => response.json())
             .then((data) => {
                 const locLatLng = data.results[0].geometry.location;
@@ -163,7 +178,10 @@ async function initMap() {
 
 
 
-document.querySelector('#login-button').addEventListener('click', loginBtnEventHandler);
+const loginBtn = document.querySelector('#login-button');
+if (loginBtn) { loginBtn.addEventListener('click', loginBtnEventHandler) };
+const logoutBtn = document.querySelector('#logout');
+if (logoutBtn) { logoutBtn.addEventListener('click', logout) };
+
 document.querySelector('#useritems-button').addEventListener('click', viewMyFoodEventHandler);
 document.querySelector('#userfridges-button').addEventListener('click', viewMyFridgesEventHandler);
-// document.querySelector('.fridge-btn').addEventListener('click', mapIconClickEventHandler);
