@@ -40,8 +40,8 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    // const validPassword = await userData.checkPassword(req.body.password);
-    const validPassword = true;
+    const validPassword = await userData.checkPassword(req.body.password);
+    // const validPassword = true;
 
     if (!validPassword) {
       res
@@ -64,6 +64,21 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// Retrieves user_id discretely and securely
+router.get('/owner_id', async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+    });
+
+    const data = userData.get({ plain: true });
+
+    res.status(200).json(data.id);
+  } catch (err) {
+    res.status(500).json(err);
+    console.error(err)
+  }
+});
 
 //handles logout
 router.post('/logout', (req, res) => {

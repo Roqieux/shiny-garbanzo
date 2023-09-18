@@ -1,7 +1,6 @@
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
-  console.log('hello')
   const username = document.querySelector('#username-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
   console.log(username);
@@ -25,17 +24,16 @@ const loginFormHandler = async (event) => {
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  const firstname = document.querySelector('#firstname-signup').value.trim();
-  const lastname = document.querySelector('#lastname-signup').value.trim();
+  const first_name = document.querySelector('#firstname-signup').value.trim();
+  const last_name = document.querySelector('#lastname-signup').value.trim();
   const username = document.querySelector('#username-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
-  const passwordConfirm = document.querySelector('#password-confirm').value.trim();
 
-  if (firstname && lastname && username && email && password && password === passwordConfirm) {
+  if (first_name && last_name && username && email && password) {
     const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ firstname, lastname, username, email, password }),
+      body: JSON.stringify({ first_name, last_name, username, email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
@@ -59,12 +57,12 @@ const signupSpawnpoint = async () => {
     <div class="modal-body">
       <form>
         <div class="mb-3">
-          <label for="first_name-signup" class="col-form-label">First Name:</label>
-          <input type="text" class="form-control" id="first_name-signup">
+          <label for="firstname-signup" class="col-form-label">First Name:</label>
+          <input type="text" class="form-control" id="firstname-signup">
         </div>
         <div class="mb-3">
-          <label for="last_name-signup" class="col-form-label">Last Name:</label>
-          <input type="text" class="form-control" id="last_name-signup">
+          <label for="lastname-signup" class="col-form-label">Last Name:</label>
+          <input type="text" class="form-control" id="lastname-signup">
         </div>
         <div class="mb-3">
           <label for="email-signup" class="col-form-label">Email:</label>
@@ -77,10 +75,6 @@ const signupSpawnpoint = async () => {
         <div class="mb-3">
           <label for="password" class="col-form-label">Password:</label>
           <input type="password" class="form-control" id="password-signup">
-        </div>
-        <div class="mb-3">
-          <label for="password-confirm" class="col-form-label">Confirm Password:</label>
-          <input type="password" class="form-control" id="password-confirm">
         </div>
         <div>
           <input type="submit" class="btn btn-warning" id="signup-form" value="Submit">

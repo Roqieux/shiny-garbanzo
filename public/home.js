@@ -25,7 +25,7 @@ const viewMyFridgesEventHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
     });
 
-    console.log(response);
+    // console.log(response);
     if (response.ok) {
         document.location.replace('/userfridges')
     } else {
@@ -52,6 +52,21 @@ const loginBtnEventHandler = async (event) => {
 
 };
 
+const logout = async () => {
+    console.log('logout called!')
+    const response = await fetch('/api/users/logout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+        document.location.replace('/login');
+    } else {
+        alert(response.statusText);
+    }
+};
+
+
 let viewedFridge;
 const mapIconClickEventHandler = async (event) => {
     event.preventDefault();
@@ -70,10 +85,10 @@ const mapIconClickEventHandler = async (event) => {
     }
 
 };
-
+// todo: restore map once key works again
 // Called on page render, initializes map
 async function initMap() {
-    const { Map, InfoWindow } = await google.maps.importLibrary("maps");
+    const { Map } = await google.maps.importLibrary("maps");
     const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
     const map = new Map(document.getElementById("map"), {
         mapId: "481e26f102ca36c2",
@@ -163,8 +178,10 @@ async function initMap() {
 
 
 
-document.querySelector('#login-button').addEventListener('click', loginBtnEventHandler);
+const loginBtn = document.querySelector('#login-button');
+if (loginBtn) { loginBtn.addEventListener('click', loginBtnEventHandler) };
+const logoutBtn = document.querySelector('#logout');
+if (logoutBtn) { logoutBtn.addEventListener('click', logout) };
+
 document.querySelector('#useritems-button').addEventListener('click', viewMyFoodEventHandler);
 document.querySelector('#userfridges-button').addEventListener('click', viewMyFridgesEventHandler);
-document.querySelector('#register-button').addEventListener('click', signupSpawnpoint);
-// document.querySelector('.fridge-btn').addEventListener('click', mapIconClickEventHandler);

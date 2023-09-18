@@ -48,7 +48,7 @@ router.get('/userfridges', async (req, res) => {
 
     const data = userData.get({ plain: true });
 
-    console.log(data)
+    // console.log(data)
     res.render('userfridges', {
       data,
       logged_in: req.session.logged_in,
@@ -69,6 +69,8 @@ router.get('/useritems', async (req, res) => {
     });
 
     const data = userData.get({ plain: true });
+
+    console.log(data);
 
     res.render('useritems', {
       data,
