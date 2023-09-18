@@ -1,22 +1,23 @@
-<main class=" container border rounded homecont container-fluid p-5 mt-5" id="content">
+<main class="bg-custom container border rounded homecont container-fluid p-5 mt-5" id="content">
   <section class="d-flex justify-content-around logbtnArea">
     <button class="logbtn" id="login-button">Login</button>
     <button class="logbtn" id="logout">Logout</button>
     <button class="logbtn" id="useritems-button">Veiw my Foods</button>
     <button class="logbtn" id="userfridges-button">View My Fridges</button>
   </section>
-  <div class="d-flex flex-row map-page">
-    <section>
+  <div class="d-flex flex-row justify-content-center align-items-center map-page">
+    {{!-- <section> --}}
       {{!-- add map here --}}
       <div id="map"></div>
-    </section>
-    <section>
+      {{!--
+    </section> --}}
+    {{!-- <section> --}}
       {{!-- list of fridges --}}
-      <h1>My Fridges</h1>
-      <ul>
+      {{!-- <h1>My Fridges</h1>
+      <ul> --}}
         {{!-- list user's subscribed fridges here --}}
-      </ul>
-    </section>
+        {{!-- </ul>
+    </section> --}}
   </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
