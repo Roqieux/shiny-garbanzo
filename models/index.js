@@ -6,7 +6,8 @@ const UserFridge = require('./User-Fridge');
 
 // Items and fridge relationships
 Item.belongsTo(Fridge,{
-  foreignKey: 'fridge_id'
+  foreignKey: 'fridge_id',
+  onDelete: "cascade"
 })
 
 Fridge.hasMany(Item,{
