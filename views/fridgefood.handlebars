@@ -1,38 +1,38 @@
-<main class="bg-custom container border rounded logcont container-fluid p-5 mt-5" id="content">
-    {{>back-btn}}
-    <section id="lll" class="d-flex flex-column align-items-center justify-content-center stuff">
-        <h1 id="title">Add Foods!</h1>
-        {{data.fridge_name}}
-        <div class="push mt-500px"></div>
-        <section class="mb-4">
-            <input class="textbox" type="Fridge" placeholder="New Item">
-            {{!-- <fieldset>
-                <legend>Freezer or Fridge?</legend>
-                <label><input type="radio" name="radio" value="true" /> Freezer</label>
-                <label><input type="radio" name="radio" value="false" /> Fridge</label>
-            </fieldset> --}}
-            <section class="mt-4 mx-3">
-
-                {{!-- look at models --}}
-                <button class="logbtn mx-3">Add +</button>
-            </section>
-            <input class="textbox" type="Freezer" placeholder='Freezer'>
-            <section class="mt-4 mx-3">
-                <button class="logbtn mx-3">Add +</button>
-            </section>
-        </section>
-        <div class="push"></div>
-    </section>
-
-    <section class="d-flex flex-column flex-wrap align-items-center justify-content-center stuff">
-        <h3 class="user-title">{{data.fridge_name}}'s Food</h3>
-        <ul>
-            {{#each data.Items as |item|}}
-            <li>{{item_name}}: Expires on {{expiration_date}}</li>
-            {{/each}}
-        </ul>
-    </section>
-
-</main>
+<main class="bg-custom container border rounded mainhandle logcont container-fluid p-5 mt-5" id="content">
+      {{>back-btn}}
+      <section id="" class="d-flex flex-column align-items-center justify-content-center  stuff">
+          <h1 id="title">Add Foods!</h1>
+          {{data.fridge_name}}
+          <div class="push mt-500px"></div>
+          <section class="mb-4">
+              <input class="textbox" type="Fridge" placeholder="New Item">
+              {{!-- <fieldset>
+                  <legend>Freezer or Fridge?</legend>
+                  <label><input type="radio" name="radio" value="true" /> Freezer</label>
+                  <label><input type="radio" name="radio" value="false" /> Fridge</label>
+              </fieldset> --}}
+              <section class="mt-4 mx-3">
+  
+                  {{!-- look at models --}}
+                  <button class="logbtn mx-3">Add +</button>
+              </section>
+              <input class="textbox" type="Freezer" placeholder='Freezer'>
+              <section class="mt-4 mx-3">
+                  <button class="logbtn mx-3">Add +</button>
+              </section>
+          </section>
+          <div class="push"></div>
+      </section>
+  
+      <section class="d-flex flex-column flex-wrap align-items-center justify-content-center bg-warning border borderfood rounded stuff">
+          <h3 class="user-title">{{data.fridge_name}}'s Food</h3>
+          <ul>
+              {{#each data.Items as |item|}}
+              <li>{{item_name}}: Expires on {{expiration_date}}</li>
+              {{/each}}
+          </ul>
+      </section>
+  
+  </main>
 
 <script src="/backbtn.js"></script>
