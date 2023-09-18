@@ -163,7 +163,10 @@ async function initMap() {
 
 
 
-document.querySelector('#login-button').addEventListener('click', loginBtnEventHandler);
+const loginBtn = document.querySelector('#login-button');
+if (loginBtn) { loginBtn.addEventListener('click', loginBtnEventHandler) };
+const logoutBtn = document.querySelector('#logout');
+if (logoutBtn) { logoutBtn.addEventListener('click', logout) };
+
 document.querySelector('#useritems-button').addEventListener('click', viewMyFoodEventHandler);
 document.querySelector('#userfridges-button').addEventListener('click', viewMyFridgesEventHandler);
-// document.querySelector('.fridge-btn').addEventListener('click', mapIconClickEventHandler);
