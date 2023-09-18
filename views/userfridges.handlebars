@@ -4,12 +4,12 @@
         <h1 id="title">My Phridges</h1>
         <div class="push mt-500px"></div>
         <section class="mb-4">
-            <input class="textbox" type="Fridge" placeholder="Fridge Name">
+            {{!-- <input class="textbox" type="Fridge" placeholder="Fridge Name"> --}}
             <section class="mt-4 mx-3">
-                <button class="logbtn mx-3">Remove</button>
+                <button class="logbtn mx-3 fridge-delete-btn">Remove</button>
             </section>
             <section class="mt-4 mx-3">
-                <button class="logbtn mx-3">Add +</button>
+                <button class="logbtn mx-3 fridge-add-btn" data-bs-toggle="modal" data-bs-target="#modal">Add +</button>
             </section>
             {{!-- <input class="textbox" type="Fridge" placeholder='Fridge Name'>
             <section class="mt-4 mx-3">
@@ -23,16 +23,23 @@
     </section>
 
     <section class="placeholdertext">
-
         <h3 class="username-title">{{data.username}}'s Fridges</h3>
+        <div class="fridgelist">
 
-        {{#each data.fridges as |fridge|}}
-        {{>fridge-details}}
-        {{/each}}
+            {{#each data.fridges as |fridge|}}
+            {{>fridge-details}}
+            {{/each}}
 
+        </div>
 
     </section>
 
 </main>
 
+<<<<<<< HEAD
+<script src="/userfridges.js"></script>
 <script src="/backbtn.js"></script>
+=======
+<script src="/backbtn.js"></script>
+<script src="/removefridge.js"></script>
+>>>>>>> 329a26bf693e2bfd6577ab65aa1b38ab266b0b82
