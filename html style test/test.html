@@ -40,42 +40,44 @@
 
       </h1>
     </header>
-    <main class="bg-custom container border rounded logcont container-fluid p-5 mt-5" id="content">
+    <main class="bg-custom container border rounded mainhandle logcont container-fluid p-5 mt-5" id="content">
       {{>back-btn}}
-      <section class="d-flex flex-column align-items-center justify-content-center stuff">
-          <h1 id="title">My Phridges</h1>
+      <section id="" class="d-flex flex-column align-items-center justify-content-center  stuff">
+          <h1 id="title">Add Foods!</h1>
+          {{data.fridge_name}}
           <div class="push mt-500px"></div>
           <section class="mb-4">
-              <input class="textbox" type="Fridge" placeholder="Fridge Name">
+              <input class="textbox" type="Fridge" placeholder="New Item">
+              {{!-- <fieldset>
+                  <legend>Freezer or Fridge?</legend>
+                  <label><input type="radio" name="radio" value="true" /> Freezer</label>
+                  <label><input type="radio" name="radio" value="false" /> Fridge</label>
+              </fieldset> --}}
               <section class="mt-4 mx-3">
-                  <button class="logbtn mx-3">Remove</button>
+  
+                  {{!-- look at models --}}
+                  <button class="logbtn mx-3">Add +</button>
               </section>
+              <input class="textbox" type="Freezer" placeholder='Freezer'>
               <section class="mt-4 mx-3">
                   <button class="logbtn mx-3">Add +</button>
               </section>
-              {{!-- <input class="textbox" type="Fridge" placeholder='Fridge Name'>
-              <section class="mt-4 mx-3">
-                  <button class="logbtn mx-3">Remove</button>
-              </section>
-              <section class="mt-4 mx-3">
-                  <button class="logbtn mx-3">Add +</button>
-              </section> --}}
           </section>
           <div class="push"></div>
       </section>
   
-      <section class="placeholdertext">
-  
-          <h3 class="username-title">{{data.username}}'s Fridges</h3>
-  
-          {{#each data.fridges as |fridge|}}
-          {{>fridge-details}}
-          {{/each}}
-  
-  
+      <section class="d-flex flex-column flex-wrap align-items-center justify-content-center bg-warning border borderfood rounded stuff">
+          <h3 class="user-title">{{data.fridge_name}}'s Food</h3>
+          <ul>
+              {{#each data.Items as |item|}}
+              <li>{{item_name}}: Expires on {{expiration_date}}</li>
+              {{/each}}
+          </ul>
       </section>
   
   </main>
+  
+  <script src="/backbtn.js"></script>
   
   <script src="/backbtn.js"></script>
 

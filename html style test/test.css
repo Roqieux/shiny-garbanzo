@@ -21,8 +21,12 @@
     height: 100%;
 }
 
-.border {
+.mainhandle {
     border: 6px solid #ffc107 !important;
+}
+
+.borderfood{
+    border: 6px solid cadetblue !important;
 }
 
 .textbox {
