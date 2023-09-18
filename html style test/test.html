@@ -8,48 +8,9 @@
 </head>
 
 <body>
-  <div class="flex-column h-100 justify-space-around" id="backroundI">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1 class="text-warning text-center">
 
-      </h1>
-    </header>
-
-    <main class=" container border rounded homecont container-fluid p-5 mt-5" id="content">
-      <section class="d-flex justify-content-around logbtnArea">
-        <button class="logbtn" id="login-button">Login</button>
-        <button class="logbtn" id="logout">Logout</button>
-        <button class="logbtn" id="useritems-button">Veiw my Foods</button>
-        <button class="logbtn" id="userfridges-button">View My Fridges</button>
-      </section>
-      <div class="d-flex flex-row map-page">
-        <section>
-
-          <div id="map"></div>
-        </section>
-        <section>
-
-          <h1>My Fridges</h1>
-          <ul>
-
-          </ul>
-        </section>
-      </div>
-    
-      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-      <script src="/home.js"></script>
-      <script src="/logout.js"></script>
-      <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6L6whRm8FlsozW7lN8bUic-Jh8uClIyU&map_ids=481e26f102ca36c2&callback=initMap">
-        </script>
-
-    </main>
-
-  </div>
-
-
-  <div class="modal fade modal-spawnpoint" id="modal" data-bs-backdrop="static" tabindex="-1"
-    aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal fade modal-spawnpoint position-absolute top-0 start-0" id="modal" data-bs-backdrop="static"
+    tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen-md-down">
       <div class="modal-content rounded-6 shadow">
         <div class="modal-body p-5">
@@ -71,6 +32,55 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="flex-column h-100 justify-space-around" id="backroundI">
+    <header class="display-flex justify-space-between align-center p-2">
+      <h1 class="text-warning text-center">
+
+      </h1>
+    </header>
+    <main class="bg-custom container border rounded logcont container-fluid p-5 mt-5" id="content">
+      {{>back-btn}}
+      <section class="d-flex flex-column align-items-center justify-content-center stuff">
+          <h1 id="title">My Phridges</h1>
+          <div class="push mt-500px"></div>
+          <section class="mb-4">
+              <input class="textbox" type="Fridge" placeholder="Fridge Name">
+              <section class="mt-4 mx-3">
+                  <button class="logbtn mx-3">Remove</button>
+              </section>
+              <section class="mt-4 mx-3">
+                  <button class="logbtn mx-3">Add +</button>
+              </section>
+              {{!-- <input class="textbox" type="Fridge" placeholder='Fridge Name'>
+              <section class="mt-4 mx-3">
+                  <button class="logbtn mx-3">Remove</button>
+              </section>
+              <section class="mt-4 mx-3">
+                  <button class="logbtn mx-3">Add +</button>
+              </section> --}}
+          </section>
+          <div class="push"></div>
+      </section>
+  
+      <section class="placeholdertext">
+  
+          <h3 class="username-title">{{data.username}}'s Fridges</h3>
+  
+          {{#each data.fridges as |fridge|}}
+          {{>fridge-details}}
+          {{/each}}
+  
+  
+      </section>
+  
+  </main>
+  
+  <script src="/backbtn.js"></script>
+
+<script src="/backbtn.js"></script>
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
